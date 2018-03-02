@@ -23,6 +23,9 @@ $api->version('v1', function($api) {
     $api->get('version', function() {
         return response('this is version v1');
     });
+    $api->put('version', function() {
+        return response('this is version v1 put');
+    });
 });
 
 $api->version('v2', function($api) {
@@ -30,3 +33,10 @@ $api->version('v2', function($api) {
         return response('this is version v2');
     });
 });
+
+// 第三方登录
+// $api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
+//     ->name('api.socials.authorizations.store');
+// 登录
+$api->post('authorizations', 'AuthorizationsController@store')
+    ->name('api.authorizations.store');
