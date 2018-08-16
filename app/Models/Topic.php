@@ -27,11 +27,13 @@ class Topic extends Model
         // 不同的排序，使用不同的数据读取逻辑
         switch ($order) {
             case 'recent':
-                $query = $this->recent();
+                // $query = $this->recent();
+                $query->recent();
                 break;
 
             default:
-                $query = $this->recentReplied();
+                // $query = $this->recentReplied();
+                $query->recentReplied();
                 break;
         }
         // 预加载防止 N+1 问题
